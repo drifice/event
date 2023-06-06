@@ -1,13 +1,16 @@
 <h1> Ajouter un évènement </h1>
-<button (click)="add()">  Ajouter +</button>{{ajouter}}
+<button (click)="add()">  Ajouter +</button>
 <form [formGroup]="form" *ngIf="ajouter" (ngSubmit)="onSubmit()">
     <div>
       <label >titre</label>
       <input type="text" formControlName="titre" />
     </div>
     <div>
-      <label >Catégories</label>
-      <input type="text" formControlName="categorie" />
+      <label >Catégorie</label>
+      <select formControlName="categorie">
+        <option value="culturel">culturel</option>
+        <option value="sportif">sportif</option>
+      </select>
     </div>
     <div>
       <label >Description</label>

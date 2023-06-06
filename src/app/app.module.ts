@@ -9,6 +9,7 @@ import { AddEventComponent } from './pages/composants/add-event/add-event.compon
 import { EventComponent } from './pages/event/event.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ListEventComponent } from './pages/composants/list-event/list-event.component';
+import { DetailEventComponent } from './pages/composants/detail-event/detail-event.component';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import { ListEventComponent } from './pages/composants/list-event/list-event.com
     AddEventComponent,
     EventComponent,
     ListEventComponent,
+    DetailEventComponent,
   ],
   imports: [
     BrowserModule,

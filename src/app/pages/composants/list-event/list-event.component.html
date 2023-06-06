@@ -1,1 +1,8 @@
-<p>list-event works!</p>
+<app-detail-event *ngIf="detailEvent" [seeEvent]="lookEvent"></app-detail-event>
+<h1> Listes des évènements</h1>
+<ul>
+  <li *ngFor="let event of listEvents">
+    {{ event.title }}
+    <button  (click)="showDetailEvent(event)"> Voir </button>
+  </li>
+</ul>
