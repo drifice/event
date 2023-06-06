@@ -1,0 +1,48 @@
+<h1> Ajouter un évènement </h1>
+<button (click)="add()">  Ajouter +</button>{{ajouter}}
+<form [formGroup]="form" *ngIf="ajouter" (ngSubmit)="onSubmit()">
+    <div>
+      <label >titre</label>
+      <input type="text" formControlName="titre" />
+    </div>
+    <div>
+      <label >Catégories</label>
+      <input type="text" formControlName="categorie" />
+    </div>
+    <div>
+      <label >Description</label>
+      <input type="text" formControlName="description" />
+    </div>
+    <div>
+      <label >Date début</label>
+      <input type="text" formControlName="datedebut" />
+    </div>
+    <div>
+      <label >Date fin</label>
+      <input type="text" formControlName="datefin" />
+    </div>
+    <div>
+      <label >Nb de participant</label>
+      <input type="text" formControlName="nbparticipant" />
+    </div>
+    <div>
+      <label >Numéro</label>
+      <input type="text" formControlName="numero" />
+    </div>
+    <div>
+      <label >Adresse</label>
+      <input type="text" formControlName="adresse" />
+    </div>
+    <div>
+      <label >Code postal</label>
+      <input type="text" formControlName="cp" />
+    </div>
+    <div>
+      <label >Ville</label>
+      <input type="text" formControlName="ville" />
+    </div>
+    <div>
+      <button type="submit" > Ajouter </button>
+      <button (click)="cancel()"> Annuler </button>
+    </div>
+  </form>
