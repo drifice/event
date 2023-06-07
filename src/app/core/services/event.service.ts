@@ -32,7 +32,7 @@ export class EventService {
   }
   updateEvent(data:any): Observable<any> {
       console.log('data' , data)
-    return this.http.post<any>('localhost:3000/user/participate', data)
+    return this.http.post<any>('http://localhost:3000/user/participate', data)
       .pipe(
         tap(data => {
           console.log(data);

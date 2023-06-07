@@ -14,6 +14,7 @@ import {IUser} from "../../../core/models/user.model";
 export class DetailEventComponent {
   @Input() seeEvent!: IEvent ;
   eventService!: EventService;
+  participate:boolean = false;
   constructor(private event: EventService) {
     this.eventService = event;
   }
@@ -27,6 +28,7 @@ export class DetailEventComponent {
     };
 
     this.eventService.updateEvent(data).subscribe();
+    this.participate =true;
   }
 }
 
