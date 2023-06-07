@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import {SignService} from "../../../core/services/sign.service";
 
 @Component({
   selector: 'app-register',
@@ -9,10 +10,12 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 export class RegisterComponent implements OnInit{
   form!: FormGroup;
   submitted = false;
+  userservice!:SignService;
 
-  constructor(
-    private formBuilder: FormBuilder,
-  ) { }
+  constructor(private formBuilder: FormBuilder,
+    private userService: SignService  ) {
+    this.userservice = userService;
+  }
 
   ngOnInit() {
     this.form = this.formBuilder.group({
@@ -24,6 +27,7 @@ export class RegisterComponent implements OnInit{
 
   onSubmit() {
     this.submitted = true;
-    console.log('enregistrer');
+    this.userService.addUser(this.form.value);
+
   }
 }

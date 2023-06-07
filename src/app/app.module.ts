@@ -10,6 +10,7 @@ import { EventComponent } from './pages/event/event.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ListEventComponent } from './pages/composants/list-event/list-event.component';
 import { DetailEventComponent } from './pages/composants/detail-event/detail-event.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { DetailEventComponent } from './pages/composants/detail-event/detail-eve
   imports: [
     BrowserModule,
     AppRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

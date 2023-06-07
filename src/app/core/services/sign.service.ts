@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import {Observable, tap} from 'rxjs';
+import {IUser} from "../models/user.model";
 
 @Injectable({
   providedIn: 'root'
@@ -11,20 +12,44 @@ export class SignService {
     this.http= http;
    }
 
-  login(email: string, password: string): boolean {
+  addUser(data:Partial<IUser>): Observable<any> {
+    console.log("ici", data)
+    return this.http.post<any>('http://localhost:3000/register', data)
+      .pipe(
+        tap(data => {
+          console.log(data);
+        }),
 
-    if (email === undefined || email === null)
-        throw new Error("The parameter 'username' must be defined and cannot be null.");
-    if (password === undefined || password === null)
-        throw new Error("The parameter 'password' must be defined and cannot be null.");
-    else
+      );
+  }
+  login(data: any): Observable<boolean> {
 
-    return this.http.post("localhost:3000/user",);
-}
+    return this.http.post<any>('http://localhost:3000/user', data)
+      .pipe(
+        tap(data => {
+          console.log(data);
+        }),
+      );
+  }
+
+  getUser(id: string): Observable<any> {
+
+    return this.http.get<string>('http://localhost:3000/user/'+ id)
+      .pipe(
+        tap(data => {
+          console.log(data);
+        }),
+      );
+  }
+// {
+//   "id": "bd83d34a-7511-4df1-b1bd-c41ab11c0608",
+//   "name": "bob3",
+//   "email": "bob@bobo3.com"
+// }
 
     // login
     // je tenvoie email et psw
-    // je recois  id et le nom
+    // je recois  id et le email
 
   // register()
   // post  localhost:3000/register
