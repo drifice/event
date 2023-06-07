@@ -3,11 +3,11 @@
 <form [formGroup]="form" *ngIf="ajouter" (ngSubmit)="onSubmit()">
     <div>
       <label >titre</label>
-      <input type="text" formControlName="titre" />
+      <input type="text" formControlName="title" />
     </div>
     <div>
       <label >Catégorie</label>
-      <select formControlName="categorie">
+      <select formControlName="category">
         <option value="culturel">culturel</option>
         <option value="sportif">sportif</option>
       </select>
@@ -18,19 +18,11 @@
     </div>
     <div>
       <label >Date début</label>
-      <input type="text" formControlName="datedebut" />
+      <input type="text" formControlName="startTime" />
     </div>
     <div>
       <label >Date fin</label>
-      <input type="text" formControlName="datefin" />
-    </div>
-    <div>
-      <label >Nb de participant</label>
-      <input type="text" formControlName="nbparticipant" />
-    </div>
-    <div>
-      <label >Numéro</label>
-      <input type="text" formControlName="numero" />
+      <input type="text" formControlName="endTime" />
     </div>
     <div>
       <label >Adresse</label>

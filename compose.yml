@@ -1,0 +1,9 @@
+version: '3'
+
+services:
+  event-front:
+    working_dir: /app
+    build: .
+    ports:
+      - "4200:4200"
+

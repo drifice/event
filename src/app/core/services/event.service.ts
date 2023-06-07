@@ -13,10 +13,10 @@ export class EventService {
   }
 //findall
   getAllEvents(): Observable<IEvent[]> {
-    return this.http.get<IEvent[]>('http://localhost:3000/events')
+    return this.http.get<IEvent[]>('http://localhost:3000/event')
       .pipe(
         tap(data => {
-          console.log(data);
+
         }),
 
       );
@@ -26,13 +26,13 @@ export class EventService {
     return this.http.get<IEvent[]>('http://localhost:3000/event/' + id)
       .pipe(
         tap(data => {
-          console.log(data);
         }),
 
       );
   }
-  editEvent(id:any, data:any): Observable<any> {
-    return this.http.post<any>('http://localhost:3000/event/' + id, data)
+  updateEvent(data:any): Observable<any> {
+      console.log('data' , data)
+    return this.http.post<any>('localhost:3000/user/participate', data)
       .pipe(
         tap(data => {
           console.log(data);
@@ -41,8 +41,9 @@ export class EventService {
       );
   }
 
-  addEvent(id:any, data:any): Observable<any> {
-    return this.http.post<any>('http://localhost:3000/event', data)
+  //create event
+  addEvent(data:any): Observable<any> {
+    return this.http.post<any>('http://localhost:3000/event/create', data)
       .pipe(
         tap(data => {
           console.log(data);

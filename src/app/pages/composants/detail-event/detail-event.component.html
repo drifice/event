@@ -1,5 +1,5 @@
 <h1> Detail de l'évènement</h1>
-<div>
+<div *ngIf="seeEvent">
   title : {{seeEvent.title}}<br>
   category : {{seeEvent.category}}<br>
   description : {{seeEvent.description}}<br>
@@ -8,6 +8,6 @@
   adresse : {{seeEvent.adresse}}<br>
   codePostal : {{seeEvent.codePostal}}<br>
   ville : {{seeEvent.ville}}<br>
-  <button (click)="follow()"> Participer</button>
+  <button (click)="participe()"> Participer</button>
 
 </div>

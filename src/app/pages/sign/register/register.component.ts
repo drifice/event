@@ -19,7 +19,7 @@ export class RegisterComponent implements OnInit{
 
   ngOnInit() {
     this.form = this.formBuilder.group({
-        nom: ['', Validators.required],
+        name: ['', Validators.required],
         email: ['', Validators.required],
         password: ['', Validators.required]
     });
@@ -27,7 +27,7 @@ export class RegisterComponent implements OnInit{
 
   onSubmit() {
     this.submitted = true;
-    this.userService.addUser(this.form.value);
+    this.userService.addUser(this.form.value).subscribe();
 
   }
 }

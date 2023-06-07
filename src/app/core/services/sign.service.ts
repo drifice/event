@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { catchError } from 'rxjs/operators';
 import {Observable, tap} from 'rxjs';
 import {IUser} from "../models/user.model";
 
@@ -7,24 +8,26 @@ import {IUser} from "../models/user.model";
   providedIn: 'root'
 })
 export class SignService {
- http!: HttpClient;
-  constructor(http: HttpClient ) {
-    this.http= http;
+  constructor(private http: HttpClient ) {
    }
 
-  addUser(data:Partial<IUser>): Observable<any> {
-    console.log("ici", data)
-    return this.http.post<any>('http://localhost:3000/register', data)
+  addUser(data:any): Observable<any> {
+    console.log('ici', data)
+    return this.http.post<any>('http://localhost:3000/user/register', data)
       .pipe(
         tap(data => {
           console.log(data);
         }),
-
+        catchError(error => {
+          console.log(error);
+          return error;
+        })
       );
   }
-  login(data: any): Observable<boolean> {
 
-    return this.http.post<any>('http://localhost:3000/user', data)
+  login(data: any): Observable<Partial<IUser>> {
+
+    return this.http.post<any>('http://localhost:3000/user/login', data)
       .pipe(
         tap(data => {
           console.log(data);
@@ -41,23 +44,4 @@ export class SignService {
         }),
       );
   }
-// {
-//   "id": "bd83d34a-7511-4df1-b1bd-c41ab11c0608",
-//   "name": "bob3",
-//   "email": "bob@bobo3.com"
-// }
-
-    // login
-    // je tenvoie email et psw
-    // je recois  id et le email
-
-  // register()
-  // post  localhost:3000/register
-
-  // create event() il me retourne un boobean
-  // get event  localhost:3000/event voir tout les event
-  // update event   localhost:3000/event/id jenvoie voir un event je recupere un boolean
-
-
-
 }

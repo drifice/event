@@ -14,22 +14,22 @@ export class ListEventComponent {
   eventData:any;
   detailEvent: boolean= false;
   constructor(private eventService: EventService) {
+    this.eventService.getAllEvents()
+        .subscribe(data => {
+          this.events = data;
+        })
   }
 
   getEvents(){
-    this.eventService.getAllEvents()
-      .subscribe(data => {
-        this.events = data;
-        console.log(data);
-      })
+
   }
 
   showEvent(id: string){
     this.detailEvent =true;
+
     this.eventService.getEventById(id)
       .subscribe(data => {
-        this.eventData = data;
-        console.log(data);
+        this.eventData = data[0];
       })
   }
 }
